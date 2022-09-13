@@ -67,8 +67,12 @@
                 vertical-align: top;
             }
             .admin-menu {
-                background-color: #000000;
+                background-color: rgb(129, 188, 56);
                 padding: 20px 30px;
+            }
+            .admin-menu a {
+                color: #000;
+                font-weight: 700;
             }
         </style>
 
