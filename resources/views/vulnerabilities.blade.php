@@ -2,7 +2,8 @@
 
 @section('content')
 
-	<h2 class="text-center" style="margin-top: 100px;">Here you can see a list of OWASP things, Dave!</h2>
+	<h2 class="text-center" style="margin-top: 100px;">Here you can see a list of OWASP things!</h2>
+	<h5 class="text-center">For CRUD, you have to register an account and log in 😊</h5>
 
 	<table border="0" cellpadding="0" cellspacing="0" class="vuln-table">
 
