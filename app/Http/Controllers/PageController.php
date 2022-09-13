@@ -11,20 +11,16 @@ class PageController extends Controller
 
     public function homepage()
     {
-
         return view('welcome');
     }
 
 
     public function index()
     {
-
         $vulnerabilities = Vulnerability::all();
 
         return view('vulnerabilities')->with('vulnerabilities', $vulnerabilities);
     }
-
-    
 
     public function dashboard()
     {
@@ -44,7 +40,6 @@ class PageController extends Controller
         $vulnerability = Vulnerability::find($r->id);
         return view('single-vulnerability')->with('vulnerability', $vulnerability);
     }
-
 
     public function insert(Request $r)
     {
