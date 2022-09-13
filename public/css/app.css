@@ -10857,3 +10857,25 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
+.thead-dark {
+  background-color: #424242;
+  color: #FFF;
+}
+
+.thead-dark th td {
+padding: 20px;
+}
+
+.flex {
+  display: flex;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.special-btn {
+  line-height: 27px;
+}
+.mb-20 {
+  margin-bottom: 20px;
+}

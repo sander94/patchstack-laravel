@@ -29,15 +29,22 @@ class PageController extends Controller
     public function dashboard()
     {
         $vulnerabilities = Vulnerability::all();
-        return view('home')->with('vulnerabilities', $vulnerabilities);
+        return view('auth.home')->with('vulnerabilities', $vulnerabilities);
     }
 
 
     public function create()
     {
         
-        return view('create');
+        return view('auth.create-vulnerability');
     }
+
+    public function show(Request $r)
+    {
+        $vulnerability = Vulnerability::find($r->id);
+        return view('single-vulnerability')->with('vulnerability', $vulnerability);
+    }
+
 
     public function insert(Request $r)
     {
@@ -46,8 +53,31 @@ class PageController extends Controller
         $record->description = $r->description;
         $record->prevention = $r->prevention;
         $record->save();
-        return redirect()->back()->with('status', 'Well done!');
+        return redirect()->route('dashboard')->with('status', 'Wow, you\'re good!');
     }
 
+    public function vulnerabilityEdit(Request $r)
+    {
+        $vulnerability = Vulnerability::find($r->id);
+        return view('auth.edit-vulnerability')->with('vulnerability', $vulnerability);
+    }
+
+    public function vulnerabilityUpdate(Request $r)
+    {
+        $vulnerability = Vulnerability::find($r->id);
+        $vulnerability->title = $r->title;
+        $vulnerability->description = $r->description;
+        $vulnerability->prevention = $r->prevention;
+        $vulnerability->save();
+        return redirect()->route('dashboard')->with('status', 'Well done!');
+    }
+
+    public function vulnerabilityDelete(Request $r)
+    {
+
+        $vulnerability = Vulnerability::find($r->vulnerability_id)->delete();;
+
+        return redirect()->back()->with('status', 'Good job!');
+    }
 
 }

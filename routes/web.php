@@ -20,6 +20,7 @@ use App\Http\Controllers\PageController; # don't forgot to add this
 Route::get('/', [PageController::class, 'homepage'])->name('homepage');
 
 Route::get('/vulnerabilities', [PageController::class, 'index'])->name('vulnerabilities');
+Route::get('/vulnerability/{id}', [PageController::class, 'show'])->name('vulnerability');
 
 Auth::routes();
 
@@ -27,7 +28,9 @@ Route::middleware('auth')->group(function () {
         Route::get('dashboard', [PageController::class, 'dashboard'])->name('dashboard');
         Route::get('create', [PageController::class, 'create'])->name('create');
         Route::post('create', [PageController::class, 'insert'])->name('insert');
-
+        Route::get('vulnerability/edit/{id}', [PageController::class, 'vulnerabilityEdit'])->name('vulnerability.edit');
+        Route::post('vulnerability/edit/{id}', [PageController::class, 'vulnerabilityUpdate'])->name('vulnerability.update');
+        Route::post('dashboard', [PageController::class, 'vulnerabilityDelete'])->name('vulnerability.delete');
     });
 
 
