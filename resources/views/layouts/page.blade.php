@@ -77,30 +77,31 @@
         </style>
 
     </head>
+
     <body>
-
-                <div>
-            
-                <div class="admin-menu">
+       
+        <div class="admin-menu">
                    
-                        <a href="{{ url('/') }}">Welcome</a>
+            <a href="{{ url('/') }}">Welcome</a>
 
-                        <a href="{{ route('vulnerabilities') }}">OWASP Database</a>
-                    @auth
-                        <a href="{{ route('dashboard') }}">Dashboard</a>
-                    @else
+            <a href="{{ route('vulnerabilities') }}">OWASP Database</a>
 
-                        <a href="{{ route('login') }}">Log in</a>
+            @auth
 
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
+                <a href="{{ route('dashboard') }}">Dashboard</a>
+
+            @else
+
+                <a href="{{ route('login') }}">Log in</a>
+
+                <a href="{{ route('register') }}">Register</a>
+
+            @endauth
                     
-                    
-                </div>
-            
-
+         </div>
 
     	@yield('content')
 
     </body>
+    
     </html>
